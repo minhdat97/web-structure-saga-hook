@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import Login from "../components/Login";
 import { login } from "../actions/AuthLogin";
+// import Validator from "validator";
 
 class AuthLogin extends Component {
   constructor(props) {
@@ -20,8 +21,18 @@ class AuthLogin extends Component {
 
   onSubmit = e => {
     e.preventDefault();
+    // const error = this.validate(this.state);
+    // console.log(error);
     this.props.login(this.state);
   };
+
+  //   validate = data => {
+  //     const errors = {};
+  //     if (!Validator.isMobilePhone(data.account))
+  //       errors.account = "Invalid phone";
+  //     if (!data.password) errors.password = "Can't be blank";
+  //     return errors;
+  //   };
 
   render() {
     const { isError, errorCode, detailError } = this.props;

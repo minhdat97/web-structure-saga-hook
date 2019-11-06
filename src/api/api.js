@@ -9,7 +9,7 @@ instance.interceptors.request.use(
   function(config) {
     const dataStore = getDataStore("session", "login");
     if (dataStore !== null) {
-      config.headers.authorization = "Bearer " + dataStore.access_token;
+      config.headers.authorization = "Bearer " + dataStore;
     }
     return config;
   },
@@ -51,27 +51,38 @@ const callApiLogout = () => {
 const callApiLoadUsers = () => {
   return new Promise((resolve, reject) => {
     instance
-      .get("/api/users")
-      .then(function(response) {
-        resolve(response.data);
+      .get("/Account/Information")
+      .then(response => {
+        console.log("response", response);
+        response.data.code !== 1000 ? reject(response) : resolve(response);
       })
-      .catch(function(error) {
-        reject(error);
-      });
+      .catch(error => reject(error));
   });
 };
 
-const callApiCreateUser = dataForm => {
+const callApiChangePassword = () => {
   return new Promise((resolve, reject) => {
     instance
-      .post("/api/users", dataForm)
-      .then(function(response) {
-        resolve(response.data);
+      .put("/Account/ChangePassword")
+      .then(response => {
+        console.log("response", response);
+        response.data.code !== 1000 ? reject(response) : resolve(response);
       })
-      .catch(function(error) {
-        reject(error);
-      });
+      .catch(error => reject(error));
   });
 };
 
-export { callApiLogin, callApiLogout, callApiLoadUsers, callApiCreateUser };
+// const callApiCreateUser = dataForm => {
+//   return new Promise((resolve, reject) => {
+//     instance
+//       .post("/api/users", dataForm)
+//       .then(function(response) {
+//         resolve(response.data);
+//       })
+//       .catch(function(error) {
+//         reject(error);
+//       });
+//   });
+// };
+
+export { callApiLogin, callApiLogout, callApiLoadUsers, callApiChangePassword };

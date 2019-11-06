@@ -7,7 +7,7 @@ import {
 const AuthRedirect = store => next => action => {
   switch (action.type) {
     case "LOGIN_SUCCESS":
-      setStoreApplication("session", "login", action.httpResponse);
+      setStoreApplication("session", "login", action.httpResponse.data.data.accessToken);
       history.push("/");
       break;
     case "LOGOUT_SUCCESS":

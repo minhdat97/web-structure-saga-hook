@@ -20,12 +20,12 @@ const Login = ({
       {controlMessageError}
       <form className="form-signin" onSubmit={onSubmit}>
         <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
-        <label htmlFor="inputEmail" className="sr-only">
+        <label htmlFor="inputPhone" className="sr-only">
           Account
         </label>
         <input
-          type="email"
-          id="inputEmail"
+          type="phone"
+          id="inputPhone"
           className="form-control"
           name="account"
           onChange={onInputChange}
