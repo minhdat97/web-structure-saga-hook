@@ -2,6 +2,7 @@ import React from "react";
 import { Modal, Button } from "react-bootstrap";
 
 function MyVerticallyCenteredModal(props) {
+  console.log("props", props);
   return (
     <Modal
       {...props}
@@ -26,7 +27,7 @@ function MyVerticallyCenteredModal(props) {
         <Button onClick={props.onHide}>Close</Button>
       </Modal.Footer> */}
 
-      <form onSubmit={true}>
+      <form onSubmit={() => {}}>
         <Modal.Header closeButton>
           <Modal.Title id="contained-modal-title-vcenter">
             Change Password
@@ -36,19 +37,43 @@ function MyVerticallyCenteredModal(props) {
           <div className="row">
             <div className="form-group col-md-4">
               <label>Current password:</label>
-              <input type="text" className="form-control" />
+              <input
+                type="text"
+                id="currenPass"
+                name="curentpass"
+                className="form-control"
+                onChange={props.onInputChange}
+                value={props.data.currentpass}
+                placeholder="Current Password"
+              />
             </div>
           </div>
           <div className="row">
             <div className="form-group col-md-4">
               <label>New Password:</label>
-              <input type="text" className="form-control" />
+              <input
+                type="text"
+                id="newPass"
+                name="newpass"
+                className="form-control"
+                onChange={props.onInputChange}
+                value={props.data.newpass}
+                placeholder="New Password"
+              />
             </div>
           </div>
           <div className="row">
             <div className="form-group col-md-4">
-              <label>Re-enter password:</label>
-              <input type="text" className="form-control" />
+              <label>Re-enter Password:</label>
+              <input
+                type="text"
+                id="rePass"
+                name="repass"
+                className="form-control"
+                onChange={props.onInputChange}
+                value={props.data.repass}
+                placeholder="Re-enter Password"
+              />
             </div>
           </div>
         </Modal.Body>
@@ -59,7 +84,9 @@ function MyVerticallyCenteredModal(props) {
             color="primary"
             className="btn btn-primary"
           />
-          <Button onClick={props.onHide}>Close</Button>
+          <Button variant="outline-primary" onClick={props.onHide}>
+            Close
+          </Button>
         </Modal.Footer>
       </form>
     </Modal>
