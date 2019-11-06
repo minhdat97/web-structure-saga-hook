@@ -19,22 +19,18 @@ import { connect } from "react-redux";
 import ListUsers from "../components/Dashboard/index";
 import MainTemplate from "./MainTemplate";
 import { loadUsers } from "../actions/Users";
-import { changePassword } from "../actions/Users";
+// import { changePassword } from "../actions/ChangePassword";
 
 class UsersList extends Component {
   componentDidMount() {
     this.props.loadUsers();
   }
 
-  onClick = () => {
-    this.props.changePassword();
-  };
-
   render() {
     console.log("user", this.props.users);
     return (
       <MainTemplate>
-        <ListUsers users={this.props.users} onClick={this.onClick} />
+        <ListUsers users={this.props.users} />
       </MainTemplate>
     );
   }
@@ -50,9 +46,6 @@ const mapDispatchToProps = dispatch => {
   return {
     loadUsers() {
       dispatch(loadUsers());
-    },
-    changePassword() {
-      dispatch(changePassword());
     }
   };
 };

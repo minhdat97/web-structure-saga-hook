@@ -1,22 +1,5 @@
-// const initialUsers = {
-//   code: 0,
-//   results: {
-//     data: []
-//   },
-//   status: "",
-//   name: "",
-//   email: "",
-//   password: ""
-// };
-
-const usersReducer = (state = [], action) => {
+const changePasswordReducer = (state = [], action) => {
   switch (action.type) {
-    case "REQUEST_DATA_USERS_SUCCESS":
-      return {
-        ...state,
-        ...action.httpResponse.data.data
-      };
-
     case "CHANGE_PASSWORD":
       return {
         ...state,
@@ -51,4 +34,4 @@ const usersReducer = (state = [], action) => {
   }
 };
 
-export default usersReducer;
+export default changePasswordReducer;

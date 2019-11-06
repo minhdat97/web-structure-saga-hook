@@ -11,13 +11,6 @@ const requestDataUsersSuccess = payload => {
   };
 };
 
-const changePassword = payload => {
-  return {
-    type: "CHANGE_PASSWORD",
-    payload
-  };
-};
-
 // const createUser = payload => {
 //   return {
 //     type: "CREATE_USER",
@@ -41,8 +34,7 @@ const changePassword = payload => {
 
 export {
   loadUsers,
-  requestDataUsersSuccess,
-  changePassword
+  requestDataUsersSuccess
   //   createUser,
   //   updateColumn,
   //   requestCreateUsersSuccess

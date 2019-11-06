@@ -25,6 +25,7 @@
 
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { changePassword } from "../actions/ChangePassword";
 import { ButtonToolbar, Button } from "react-bootstrap";
 import MyVerticallyCenteredModal from "../components/ChangePassword";
 // import Validator from "validator";
@@ -40,17 +41,30 @@ class ChangePassword extends Component {
     };
   }
 
-  onInputChange = e => {
+  onInputChangeCurPass = e => {
     this.setState({
-      [e.target.name]: e.target.value
+      currentpass: e.target.value
+    });
+  };
+
+  onInputChangeNewPass = e => {
+    this.setState({
+      newpass: e.target.value
+    });
+  };
+
+  onInputChangeRePass = e => {
+    this.setState({
+      repass: e.target.value
     });
   };
 
   onSubmit = e => {
     e.preventDefault();
+    console.log(this.state.currentpass, this.state.newpass, this.state.repass);
     // const error = this.validate(this.state);
     // console.log(error);
-    this.props.login(this.state);
+    // this.props.login(this.state);
   };
 
   //   validate = data => {
@@ -73,7 +87,10 @@ class ChangePassword extends Component {
         </Button>
 
         <MyVerticallyCenteredModal
-          onInputChange={this.onInputChange}
+          onInputChangeCurPass={this.onInputChangeCurPass}
+          onInputChangeNewPass={this.onInputChangeNewPass}
+          onInputChangeRePass={this.onInputChangeRePass}
+          onSubmit={this.onSubmit}
           data={this.state}
           show={this.state.modalShow}
           onHide={() => this.setState({ modalShow: false })}
@@ -84,22 +101,22 @@ class ChangePassword extends Component {
 }
 
 const mapStateToProps = state => {
-  //   const isError = state.authLoginReducer.error || false;
-  //   const errorCode = state.authLoginReducer.errorCode || null;
-  //   const detailError = state.authLoginReducer.errorDetailLogin || null;
-  //   return {
-  //     login: state.authLoginReducer,
-  //     isError,
-  //     errorCode,
-  //     detailError
-  //   };
+    const isError = state.changePasswordReducer.error || false;
+    const errorCode = state.changePasswordReducer.errorCode || null;
+    const detailError = state.changePasswordReducer.errorDetailLogin || null;
+    return {
+      changePassword: state.changePasswordReducer,
+      isError,
+      errorCode,
+      detailError
+    };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    // login(credentials) {
-    //   dispatch(login(credentials));
-    // }
+    changePassword(credentials) {
+      dispatch(changePassword(credentials));
+    }
   };
 };
 

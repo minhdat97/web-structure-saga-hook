@@ -1,6 +1,7 @@
 import { call, put, take, fork } from "redux-saga/effects";
 import * as api from "../api/api";
 import * as authLogin from "../actions/AuthLogin";
+import * as changePasswordAct from "../actions/ChangePassword";
 
 function* login() {
   while (true) {
@@ -47,7 +48,8 @@ function* changePassword() {
       console.log("httpResponse", httpResponse);
       yield put({ type: "CHANGE_PASSWORD_SUCCESS", httpResponse });
     } catch (error) {
-      yield put({ type: "CHANGE_PASSWORD_FAILURE", error });
+      yield put(changePasswordAct.changePasswordError(error));
+      // yield put({ type: "CHANGE_PASSWORD_FAILURE", error });
     }
   }
 }
