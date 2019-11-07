@@ -13,11 +13,6 @@ const NavTemplate = () => {
               <Home className="feather" size={16} /> Information
             </Link>
           </li>
-          {/* <li className="nav-item">
-            <Link className="nav-link" to="/users">
-              <Users className="feather" size={16} /> Users
-            </Link>
-          </li> */}
         </ul>
       </div>
     </nav>

@@ -83,7 +83,7 @@ class ChangePassword extends Component {
           variant="primary"
           onClick={() => this.setState({ modalShow: true })}
         >
-          Change Password
+          Thay đổi mật khẩu
         </Button>
 
         <MyVerticallyCenteredModal

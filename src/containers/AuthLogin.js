@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Login from "../components/Login";
+import { sha256 } from "js-sha256";
 import { login } from "../actions/AuthLogin";
 // import Validator from "validator";
 
@@ -23,17 +24,12 @@ class AuthLogin extends Component {
     e.preventDefault();
     // const error = this.validate(this.state);
     // console.log(error);
+    this.state.password = sha256(this.state.password);
+
+    console.log(this.state);
     this.props.login(this.state);
   };
-
-  //   validate = data => {
-  //     const errors = {};
-  //     if (!Validator.isMobilePhone(data.account))
-  //       errors.account = "Invalid phone";
-  //     if (!data.password) errors.password = "Can't be blank";
-  //     return errors;
-  //   };
-
+  
   render() {
     const { isError, errorCode, detailError } = this.props;
     return (

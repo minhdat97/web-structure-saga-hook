@@ -19,16 +19,6 @@ const changePasswordReducer = (state = [], action) => {
         errorCode: action.payload.errorCode,
         errorDetailLogin: action.payload.errorDetailLogin
       };
-    // case "UPDATE_COLUMN":
-    //   return {
-    //     ...state,
-    //     [action.payload.columName]: action.payload.value
-    //   };
-    // case "REQUEST_CREATE_USER_SUCCESS":
-    //   return {
-    //     ...state,
-    //     ...action.httpResponse
-    //   };
     default:
       return state;
   }

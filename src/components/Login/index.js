@@ -19,7 +19,7 @@ const Login = ({
     <div className="text-center">
       {controlMessageError}
       <form className="form-signin" onSubmit={onSubmit}>
-        <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
+        <h1 className="h3 mb-3 font-weight-normal">Xin Đăng nhập</h1>
         <label htmlFor="inputPhone" className="sr-only">
           Account
         </label>
@@ -51,7 +51,7 @@ const Login = ({
           className="btn btn-lg btn-outline-primary btn-block"
           type="submit"
         >
-          Sign in <LogIn />
+          Đăng nhập <LogIn />
         </button>
         <p className="mt-5 mb-3 text-muted">&copy; 2019-2020</p>
       </form>

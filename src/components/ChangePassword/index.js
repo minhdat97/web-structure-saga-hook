@@ -12,44 +12,44 @@ const MyVerticallyCenteredModal = props => {
     >
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
-          Change Password
+          Thay đổi mật khẩu
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <form className="modal-changepass" onSubmit={props.onSubmit}>
           <div className="row">
             <div className="form-group col-md-4">
-              <label>Current password:</label>
+              <label>Mật khẩu hiện tại:</label>
               <input
                 type="password"
                 className="form-control"
                 onChange={props.onInputChangeCurPass}
                 value={props.data.currentpass}
-                placeholder="Current Password"
+                placeholder="Xin nhập..."
               />
             </div>
           </div>
           <div className="row">
             <div className="form-group col-md-4">
-              <label>New Password:</label>
+              <label>Mật khẩu mới:</label>
               <input
                 type="password"
                 className="form-control"
                 onChange={props.onInputChangeNewPass}
                 value={props.data.newpass}
-                placeholder="New Password"
+                placeholder="Xin nhập..."
               />
             </div>
           </div>
           <div className="row">
             <div className="form-group col-md-4">
-              <label>Re-enter Password:</label>
+              <label>Nhập lại mật khẩu mới:</label>
               <input
                 type="password"
                 className="form-control"
                 onChange={props.onInputChangeRePass}
                 value={props.data.repass}
-                placeholder="Re-enter Password"
+                placeholder="Xin nhập..."
               />
             </div>
           </div>
