@@ -20,14 +20,20 @@ class AuthLogin extends Component {
     });
   };
 
+  convertSHA256 = item => {
+    return sha256(item);
+  };
+
   onSubmit = e => {
     e.preventDefault();
+
     // const error = this.validate(this.state);
     // console.log(error);
-    // this.state.password = sha256(this.state.password);
-    this.setState({ password: sha256(this.state.password) });
+    // eslint-disable-next-line react/no-direct-mutation-state
+    this.state.password = sha256(this.state.password);
+    // const password = this.convertSHA256(this.state.password);
+    // this.setState({ password: sha256([...this.state.password]) });
 
-    console.log(this.state);
     this.props.login(this.state);
   };
 
