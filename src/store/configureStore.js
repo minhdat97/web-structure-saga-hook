@@ -4,6 +4,7 @@ import reducer from "../reducers/combineReducers";
 import rootSagas from "../sagas";
 import AuthRedirect from "../middlewares/AuthRedirect";
 import UsersRedirect from "../middlewares/UserRedirect";
+import ChangePasswordRedirect from "../middlewares/ChangePasswordRedirect";
 
 export default function configureStore(initialState) {
   const sagaMiddleware = createSagaMiddleware();
@@ -14,7 +15,12 @@ export default function configureStore(initialState) {
     reducer,
     initialState,
     composeEnhancers(
-      applyMiddleware(sagaMiddleware, AuthRedirect, UsersRedirect)
+      applyMiddleware(
+        sagaMiddleware,
+        AuthRedirect,
+        UsersRedirect,
+        ChangePasswordRedirect
+      )
     )
   );
 

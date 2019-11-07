@@ -27,7 +27,4 @@ const changePassword = payload => {
     changePassword,
     changePasswordError,
     changePasswordSuccess
-    //   createUser,
-    //   updateColumn,
-    //   requestCreateUsersSuccess
   };

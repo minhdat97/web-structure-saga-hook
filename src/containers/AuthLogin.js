@@ -24,12 +24,13 @@ class AuthLogin extends Component {
     e.preventDefault();
     // const error = this.validate(this.state);
     // console.log(error);
-    this.state.password = sha256(this.state.password);
+    // this.state.password = sha256(this.state.password);
+    this.setState({ password: sha256(this.state.password) });
 
     console.log(this.state);
     this.props.login(this.state);
   };
-  
+
   render() {
     const { isError, errorCode, detailError } = this.props;
     return (
